@@ -64,16 +64,16 @@ export default function GetFriendsTable() {
     <>
       <div className="overflow-auto max-h-[500px] border border-gray-300 rounded-lg m-20">
         {error && <p className="text-red-600">{error}</p>}
-        <table className="min-w-full text-center">
-          <thead className="bg-amber-500 sticky top-0 text-white font-extralight ">
+        <table className="min-w-full text-center table-fixed border-collapse">
+          <thead className="bg-amber-500 sticky top-0 text-white font-extralight z-10">
             <tr>
-              <th className="px-4 py-2 tracking-widest font-bangers text-2xl">
+              <th className="px-4 py-2 tracking-widest font-bangers text-2xl w-1/3">
                 Friend
               </th>
-              <th className="px-4 py-2 tracking-widest font-bangers text-2xl">
+              <th className="px-4 py-2 tracking-widest font-bangers text-2xl w-1/3">
                 Since
               </th>
-              <th className="px-4 py-2 tracking-widest font-bangers text-2xl">
+              <th className="px-4 py-2 tracking-widest font-bangers text-2xl w-1/3">
                 Unfriend
               </th>
             </tr>
@@ -82,7 +82,9 @@ export default function GetFriendsTable() {
             {friendsData.length > 0 ? (
               friendsData.map((friend, index) => (
                 <tr className="even:bg-gray-50" key={index}>
-                  <td className="px-4 py-2">{friend.friend_username}</td>
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                    {friend.friend_username}
+                  </td>
                   <td className="px-4 py-2">
                     {dayjs(friend.created_at).fromNow()}
                   </td>

@@ -8,6 +8,7 @@ import closePostChimeWindow from "./Helpers/closePostChimeWindow";
 export default function PostChimeForm() {
   //setting vaiables using use state
   const [content, setContent] = useState("");
+  const [charCount, setCharCount] = useState(0);
   //parsing the id from the current url
   const userId = new URLSearchParams(window.location.search).get("userId");
 
@@ -27,10 +28,14 @@ export default function PostChimeForm() {
       >
         <textarea
           value={content}
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => {
+            setContent(e.target.value);
+            setCharCount(e.target.value.length);
+          }}
           className="w-80 h-40 p-2 mt-20 resize-none rounded-lg shadow-md hover:shadow-lg focus:shadow-xl transition-shadow"
           placeholder="Chime here..."
         ></textarea>
+        <p className="text-gray-400">Characters: {charCount}</p>
         <button className={loginButtonClassName()}>Chime</button>
       </form>
     </div>
