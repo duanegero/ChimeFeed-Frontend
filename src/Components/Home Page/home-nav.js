@@ -1,9 +1,11 @@
 import { useState } from "react";
+
 import GetFeedTable from "../Tables/GetFeedTable";
 import GetPostTable from "../Tables/GetPostsTable";
 import openPostChimePage from "../PostChime Page/Helpers/openPostChimeWindow";
 import GetFriendsTable from "../Tables/GetFriendsTable";
 import GetFindFriendsTable from "../Tables/GetFindFriendsTable";
+import ProfileCard from "../Profile Page/profile-card";
 
 export default function HomeNav() {
   const [activeTab, setActiveTab] = useState("");
@@ -12,6 +14,12 @@ export default function HomeNav() {
     <div>
       <nav className="bg-red-800 w-full py-2 rounded-lg">
         <ul className="flex justify-around items-center font-poppins text-amber-500 tracking-widest">
+          <li
+            onClick={() => setActiveTab("profile")}
+            className="hover:cursor-pointer hover:text-white hover:font-bold"
+          >
+            View Profile
+          </li>
           <li
             onClick={() => setActiveTab("feed")}
             className="hover:cursor-pointer hover:text-white hover:font-bold"
@@ -44,6 +52,7 @@ export default function HomeNav() {
           </li>
         </ul>
       </nav>
+      <div>{activeTab === "profile" && <ProfileCard />}</div>
       <div>{activeTab === "feed" && <GetFeedTable />}</div>
       <div>{activeTab === "history" && <GetPostTable />}</div>
       <div>{activeTab === "friends" && <GetFriendsTable />}</div>

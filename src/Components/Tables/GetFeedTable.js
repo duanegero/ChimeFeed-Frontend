@@ -3,6 +3,9 @@ import { useLocation } from "react-router-dom"; //importing uselocation
 
 //import helper function
 import getFeedData from "../Tables/Helpers/getFeedData";
+import submitPostLike from "./Helpers/submitPostLike";
+
+import { GrLike } from "react-icons/gr";
 
 //import dayjs and relative time to adjust time in app
 import dayjs from "dayjs";
@@ -62,7 +65,16 @@ export default function GetFeedTable() {
               feedData.map((item, index) => (
                 <tr className="even:bg-gray-50" key={index}>
                   <td className="px-4 py-2">{item.username}</td>
-                  <td className="px-16 py-2">{item.content}</td>
+                  <td className="px-16 py-2 flex flex-col items-center justify-center">
+                    {item.content}
+                    <GrLike
+                      className="text-green-500 hover:text-green-700 cursor-pointer"
+                      size={24}
+                      onClick={(event) => {
+                        submitPostLike(event, userId, item.id);
+                      }}
+                    />
+                  </td>
                   <td className="px-4 py-2">
                     {dayjs(item.created_at).fromNow()}
                   </td>
