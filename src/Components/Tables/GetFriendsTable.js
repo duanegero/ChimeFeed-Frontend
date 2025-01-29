@@ -62,7 +62,7 @@ export default function GetFriendsTable() {
 
   return (
     <>
-      <div className="overflow-auto max-h-[500px] border border-gray-300 rounded-lg m-20">
+      <div className="overflow-auto max-h-[500px] border border-red-800 rounded-lg m-20">
         {error && <p className="text-red-600">{error}</p>}
         <table className="min-w-full text-center table-fixed border-collapse">
           <thead className="bg-amber-500 sticky top-0 text-white font-extralight z-10">
@@ -81,11 +81,11 @@ export default function GetFriendsTable() {
           <tbody className="divide-y divide-gray-200 bg-white">
             {friendsData.length > 0 ? (
               friendsData.map((friend, index) => (
-                <tr className="even:bg-gray-50" key={index}>
-                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                <tr className="even:bg-blue-100" key={index}>
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
                     {friend.friend_username}
                   </td>
-                  <td className="px-4 py-2">
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
                     {dayjs(friend.created_at).fromNow()}
                   </td>
                   <td className="px-4 py-2">

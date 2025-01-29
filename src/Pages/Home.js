@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import HomeHeader from "../Components/Home Page/home-header";
 import HomeNav from "../Components/Home Page/home-nav";
+import HomeFooter from "../Components/Home Page/home-footer";
 
 export default function Home() {
   useEffect(() => {
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <HomeHeader />
       <HomeNav />
+      <HomeFooter />
     </>
   );
 }

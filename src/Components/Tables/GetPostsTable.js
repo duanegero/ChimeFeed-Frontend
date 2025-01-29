@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom"; //importing uselocation
 import getPostsData from "./Helpers/getPostsData";
 import TrashButton from "../Buttons/trashButton";
 import deletePost from "../Helpers/deletePosts";
+import { HiOutlineEye } from "react-icons/hi";
+import openChimeLikesWindow from "../Chime Likes/Helpers/openChimeLikesWindow";
 
 //import dayjs and relativetime to adjust time in app
 import dayjs from "dayjs";
@@ -32,7 +34,8 @@ export default function GetPostTable() {
           const data = await getPostsData(userId);
           setPostHistory(data); // Updating the post history with returned data
         } catch (error) {
-          console.error("Error fetching feed data:", error); // Log the error
+          //log and set if any errors
+          console.error("Error fetching feed data:", error);
           setError("Failed to load Post History");
         }
       };
@@ -69,14 +72,19 @@ export default function GetPostTable() {
               <th className="px-4 py-2 tracking-widest font-bangers text-2xl">
                 Delete
               </th>
+              <th className="px-4 py-2 tracking-widest font-bangers text-2xl">
+                Likes
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             {postHistory.length > 0 ? (
               postHistory.map((item, index) => (
                 <tr className="even:bg-gray-50" key={index}>
-                  <td className="px-4 py-2">{item.content}</td>
-                  <td className="px-4 py-2">
+                  <td className="px-4 py-2 font-poppins tracking-wide text-gray-500 border border-black text-lg font-medium bg-blue-100">
+                    {item.content}
+                  </td>
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
                     {dayjs(item.created_at).fromNow()}
                   </td>
                   <td>
@@ -85,6 +93,14 @@ export default function GetPostTable() {
                       onDelete={deletePost}
                       refreshPosts={refreshPosts} // Pass the refreshPosts function
                     ></TrashButton>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => openChimeLikesWindow(item.id)}
+                      className="text-4xl text-gray-500"
+                    >
+                      <HiOutlineEye />
+                    </button>
                   </td>
                 </tr>
               ))

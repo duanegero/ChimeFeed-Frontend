@@ -64,18 +64,20 @@ export default function GetFeedTable() {
             {feedData.length > 0 ? (
               feedData.map((item, index) => (
                 <tr className="even:bg-gray-50" key={index}>
-                  <td className="px-4 py-2">{item.username}</td>
-                  <td className="px-16 py-2 flex flex-col items-center justify-center">
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
+                    {item.username}
+                  </td>
+                  <td className="px-16 py-2  flex flex-col items-center justify-center font-poppins tracking-wide text-gray-600  text-lg font-medium bg-blue-100">
                     {item.content}
                     <GrLike
-                      className="text-green-500 hover:text-green-700 cursor-pointer"
+                      className="text-blue-500 hover:text-blue-700 cursor-pointer mt-4 "
                       size={24}
                       onClick={(event) => {
                         submitPostLike(event, userId, item.id);
                       }}
                     />
                   </td>
-                  <td className="px-4 py-2">
+                  <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
                     {dayjs(item.created_at).fromNow()}
                   </td>
                 </tr>

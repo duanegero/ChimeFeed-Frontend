@@ -68,10 +68,10 @@ export default function GetFindFriendsTable() {
           <ul className="flex flex-col justify-center items-center mt-10">
             {findFriendsData.map((friend, index) => (
               <li
-                className="bg-gray-200 rounded-lg shadow-md mb-4 border border-red-800 p-10 w-1/2 hover:animate-flip flex flex-col justify-center items-center gap-4"
+                className="bg-blue-100 rounded-lg shadow-md mb-4 border border-red-800 p-5 w-1/2 hover:animate-flip flex flex-col justify-center items-center gap-4"
                 key={index}
               >
-                <span className="font-poppins tracking-wider ">
+                <span className="font-bangers text-4xl tracking-widest text-red-800">
                   {friend.username}
                 </span>
 

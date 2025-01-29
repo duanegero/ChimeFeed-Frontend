@@ -1,4 +1,4 @@
-export default function PostChimeHeader() {
+export default function ChimeLikesHeader() {
   return (
     <div>
       <header className="bg-amber-500 text-white rounded-lg shadow-2xl">
@@ -13,7 +13,7 @@ export default function PostChimeHeader() {
       </header>
       <header className="bg-red-800 w-full py-2 rounded-lg text-amber-500 font-bangers tracking-widest">
         <div className="flex justify-center items-center">
-          <p>Share A Chime</p>
+          <p>Likes</p>
         </div>
       </header>
     </div>

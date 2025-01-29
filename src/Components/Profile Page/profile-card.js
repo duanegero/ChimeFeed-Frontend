@@ -28,18 +28,30 @@ export default function ProfileCard() {
   }, [userId]); //only re-run the effect when userId changes
 
   return (
-    <div className="flex items-center justify-center mt-28">
-      <div className="w-2/3 h-2/3 flex flex-col justify-center items-center m-2 p-4 border border-gray-300 shadow-2xl rounded-3xl ">
+    <div className="flex items-center justify-center mt-28 ">
+      <div className="w-2/3 h-2/3 flex flex-col justify-center items-center m-2 p-4 border border-gray-300 shadow-2xl rounded-3xl bg-blue-100">
         {userData ? (
-          <>
-            <h2 className="text-2xl tracking-widest uppercase font-poppins text-gray-700 mb-10">
-              {userData.username}
-            </h2>
-            <p>First Name: {userData.first_name}</p>
-            <p>Last Name: {userData.last_name}</p>
-            <p>Age: {userData.age}</p>
-            <p>Created: {dayjs(userData.created_at).fromNow()}</p>
-          </>
+          <div className="flex flex-row ">
+            <div>
+              <h2 className="text-4xl tracking-widest uppercase font-bangers text-red-800 mb-10 mr-16 mt-10">
+                {userData.username}
+              </h2>
+            </div>
+            <div className="flex flex-col pt-5 pb-5">
+              <p className="font-poppins tracking-wider text-lg">
+                First Name: {userData.first_name}
+              </p>
+              <p className="font-poppins tracking-wider text-lg">
+                Last Name: {userData.last_name}
+              </p>
+              <p className="font-poppins tracking-wider text-lg">
+                Age: {userData.age}
+              </p>
+              <p className="font-poppins tracking-wider text-lg">
+                Created: {dayjs(userData.created_at).fromNow()}
+              </p>
+            </div>
+          </div>
         ) : (
           <p>Loading...</p>
         )}
