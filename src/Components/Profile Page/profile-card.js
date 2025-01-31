@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom"; //importing uselocation
 import getUserProfile from "./Helpers/getUserProfile";
+import { loginButtonClassName } from "../Buttons/buttonStyles";
 
 //import dayjs and relativetime to adjust time in app
 import dayjs from "dayjs";
@@ -28,7 +29,7 @@ export default function ProfileCard() {
   }, [userId]); //only re-run the effect when userId changes
 
   return (
-    <div className="flex items-center justify-center mt-28 ">
+    <div className="flex flex-col items-center justify-center mt-16 ">
       <div className="w-2/3 h-2/3 flex flex-col justify-center items-center m-2 p-4 border border-gray-300 shadow-2xl rounded-3xl bg-blue-100">
         {userData ? (
           <div className="flex flex-row ">
@@ -56,6 +57,7 @@ export default function ProfileCard() {
           <p>Loading...</p>
         )}
       </div>
+      <button className={loginButtonClassName()}>Update</button>
     </div>
   );
 }

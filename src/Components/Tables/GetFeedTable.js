@@ -65,7 +65,7 @@ export default function GetFeedTable() {
               feedData.map((item, index) => (
                 <tr className="even:bg-gray-50" key={index}>
                   <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
-                    {item.username}
+                    {item.users.username}
                   </td>
                   <td className="px-16 py-2  flex flex-col items-center justify-center font-poppins tracking-wide text-gray-600  text-lg font-medium bg-blue-100">
                     {item.content}

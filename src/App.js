@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import PostChime from "./Pages/PostChime";
 import NewUser from "./Pages/NewUser";
 import ChimeLikes from "./Pages/ChimeLikes";
+import UpdateChime from "./Pages/UpdateChime";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="post-chime" element={<PostChime />} />
         <Route path="new-user" element={<NewUser />} />
         <Route path="chime-likes" element={<ChimeLikes />} />
+        <Route path="update-chime" element={<UpdateChime />} />
       </Routes>
     </BrowserRouter>
   );

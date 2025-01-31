@@ -7,6 +7,7 @@ import TrashButton from "../Buttons/trashButton";
 import deletePost from "../Helpers/deletePosts";
 import { HiOutlineEye } from "react-icons/hi";
 import openChimeLikesWindow from "../Chime Likes/Helpers/openChimeLikesWindow";
+import openUpdateChimeWindow from "../UpdateChime Page/Helpers/openUpdateChimeWindow";
 
 //import dayjs and relativetime to adjust time in app
 import dayjs from "dayjs";
@@ -81,7 +82,10 @@ export default function GetPostTable() {
             {postHistory.length > 0 ? (
               postHistory.map((item, index) => (
                 <tr className="even:bg-gray-50" key={index}>
-                  <td className="px-4 py-2 font-poppins tracking-wide text-gray-500 border border-black text-lg font-medium bg-blue-100">
+                  <td
+                    className="px-4 py-2 font-poppins tracking-wide text-gray-500 border border-black text-lg font-medium bg-blue-100 hover:cursor-pointer"
+                    onClick={() => openUpdateChimeWindow(item.id, item.content)}
+                  >
                     {item.content}
                   </td>
                   <td className="px-4 py-2 overflow-hidden text-ellipsis whitespace-nowrap text-2xl font-bangers text-red-800 tracking-widest">
